@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKEMON</title>
+     <script src="./script.js"></script>
+        <link rel="stylesheet" href="./style.css">
+</head>
+<body> 
+    
+    <section id="seleccionar_mascota">
+        <h1 id="titulo_principal">MOKEPON 🔥 🍃 💧</h1>
+        <h2 class="subtitulo">Elije tu mascota </h2>
+
+        <div class="caja_mascotas">
+            <input type="radio" name="mascota" id="hipodoge" class="input_mascota">
+            <label for="hipodoge" class="label_mascota">
+                <p>hipodoge</p>
+                <img src="./sources/1.png" alt="hipodoge">
+            </label>
+
+            <input type="radio" name="mascota" id="capipepo" class="input_mascota">
+            <label for="capipepo" class="label_mascota">
+                <p>capipepo</p>
+                <img src="./sources/2.png" alt="capipepo">
+            </label>
+            
+            <input type="radio" name="mascota" id="ratigueya" class="input_mascota">
+            <label for="ratigueya" class="label_mascota ">
+                <p>ratigueya</p>
+                <img src="./sources/3.png" alt="ratigueya"> 
+            </label>
+            
+            <input type="radio" name="mascota" id="langostelvis" class="input_mascota">
+            <label for="langostelvis" class="label_mascota">
+                <p>langostelvis</p>
+                <img src="./sources/4.png" alt="langostelvis">
+            </label>
+            
+            <input type="radio" name="mascota" id="tucapalma" class="input_mascota">
+            <label for="tucapalma" class="label_mascota">
+                <p>tucapalma</p>
+                <img src="./sources/5.png" alt="tucapalma">
+            </label>
+            
+            <input type="radio" name="mascota" id="pydos" class="input_mascota      ">
+            <label for="pydos" class="label_mascota">
+                <p>pydos</p>
+                <img src="./sources/6.png" alt="pydos">
+            </label>
+            
+
+        </div>
+        
+        <button id="button_seleccionar_mascota">
+            seleccionar 
+        </button>
+    </section>
+    
+    <section id="seleccionar_ataque">
+        <div id="contenedor_seleccionar_ataque">
+            <h2>Elije tu ataque </h2>
+            <div id="contenedor_ataques">
+                <div class ="tarjeta_mascota_jugador">
+                    <h2 class="nombre_jugador">Jugador</h2>
+
+                    <div id="contenedor_mascota_jugador">
+                        <img id="img_mascota_jugador" src="" alt="">
+                    </div>
+
+                    <div class="contenedor_detalles_mascota">
+                        <p>Mascota Seleccionada: <span id="nombre_mascota_jugador"></span></p>
+                        <p>Vida: <span id="vidas_jugador">3</span></p>
+                    </div>
+
+                    <div id="popup_ataque_jugador" class="popup-ataque popup-oculto">
+                        <p id="texto_ataque_jugador"></p>
+                    </div>
+                </div>
+
+                <div class="tarjeta_botones">
+                    <button id="button_fuego">
+                        FUEGO 🔥
+                    </button>
+
+                    <button id="button_agua">
+                        AGUA 💧
+                    </button>
+
+                    <button id="button_tierra" >
+                        TIERRA 🍃
+                    </button>
+                </div>
+                
+                <div class="tarjeta_mascota_enemigo">
+                    <h2 class="nombre_jugador">Enemigo</h2>
+
+                    <div id="contenedor_mascota_enemigo">
+                        <img id="img_mascota_enemigo" src="" alt="">
+                    </div>
+
+                    <div class="contenedor_detalles_mascota">
+                        <p>Mascota Seleccionada: <span id="nombre_mascota_oponente"></span></p>
+                        <p>Vidas: <span id="vidas_oponente">3</span></p>
+                    </div>
+
+                    <div id="popup_ataque_enemigo" class="popup-ataque popup-oculto">
+                        <p id="texto_ataque_enemigo"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id="primerScreen">
+            <button id="button_atras" >
+                atras <--       
+            </button>
+        </div>
+
+        <div id="mensaje_ronda" class="popup-oculto">
+            <p id="texto_ronda"></p>
+        </div>
+    </section>
+
+    <section id="mensajes">
+        <button id ="button_log">
+            Ver log de batalla
+
+        </button>
+        <div id="contenedor_mensajes">
+            <h3>historial de batalla</h3>
+        </div>
+    </section>
+
+   
+    <section id="reiniciar">
+        <button id="button_reiniciar">Reiniciar</button>
+    </section>
+
+   
+</body>
+</html>

@@ -1,0 +1,416 @@
+/* has un titulo cool */
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Paprika&display=swap');
+
+body{
+    font-family: "Paprika", system-ui;
+  background-color: #125f75;
+  color: #ffffff;
+}
+
+#seleccionar_mascota{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+#titulo_principal{
+  font-family: 'Jolly Lodger', cursive; /* La fuente cool que elegiste */
+    text-align: center;
+    font-size: 100px; /* Un poco más grande para que destaque */
+    color: #ff9100; /* Naranja vibrante */
+    text-shadow: 
+        4px 4px 0px #11468F, 
+        8px 8px 0px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.subtitulo{
+  text-align: center;
+    font-size: 44px;
+    color: #46bdf4;
+    text-transform: uppercase;
+}
+
+
+.input_mascota{
+    display: none;
+}
+
+
+.caja_mascotas{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px, 30px;
+}
+
+
+.label_mascota{
+  width: fit-content;
+  height: 120px;
+  background: #5e9e3f;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  color: #ffffff;
+}
+
+.label_mascota img{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    mix-blend-mode: multiply; /* Esto intenta mezclar los blancos con el fondo */
+    filter: contrast(120%);
+}
+
+.input_mascota:checked + .label_mascota{
+    background-color: #11468F;
+    color: white;
+    border-color: #2e7d32;
+    transform: scale(1.05); /* Un pequeño efecto de aumento */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);;
+}
+
+.label_mascota:hover{
+    background-color: #f0f0f0;
+    border-color: #888;
+}
+
+
+
+
+#button_seleccionar_mascota {
+  display: inline-block;
+  background-color: #6c5ce7; /* A vibrant purple */
+  color: #ffffff; /* White text for contrast */
+  padding: 12px 24px; /* More padding */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Slightly rounded corners */
+  font-size: 18px; /* Slightly larger font */
+  font-weight: bold; /* Make text bolder */
+  cursor: pointer; /* Indicate it's clickable */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+  margin-top: 40px; /* Espacio entre las mascotas y el botón */
+    width: 250px;    /* Un ancho fijo para que se vea más sólido */
+    font-family: "Paprika", system-ui;
+}
+
+#button_seleccionar_mascota:hover {
+  background-color: #a29bfe; /* Lighter purple on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly larger shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+#button_seleccionar_mascota:active {
+  background-color: #4834d4; /* Darker purple when clicked */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Smaller shadow when active */
+  transform: translateY(0); /* Reset lift when active */
+}
+
+
+img{
+    width: 100px;
+    height: 100px;
+  }
+
+#seleccionar_ataque{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+
+    position: relative; /* ¡Punto de referencia! */
+    width: 100%;       /* Para asegurarnos de que cubra todo el ancho */
+    box-sizing: border-box;
+
+}
+
+
+#contenedor_seleccionar_ataque{
+  margin-left: auto;  /* Empuja todo lo que puede desde la izquierda */
+    margin-right: auto; /* Empuja todo lo que puede desde la derecha */
+    /* Resultado: Se queda perfectamente en el centro */
+    
+    /* Opcional: Dale un ancho máximo para que no se vea raro en pantallas gigantes */
+    max-width: 800px; 
+    width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+
+}
+
+
+#contenedor_ataques{
+    display: flex ;
+    justify-content: center;
+    gap: 50px; /* Espacio entre la tarjeta del jugador y el enemigo */
+    padding: 20px;
+}
+
+
+.tarjeta_mascota_jugador, .tarjeta_mascota_enemigo {
+    width: 300px;
+    height: 400px;
+    background-color: #616161;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#contenedor_mascota_jugador, #contenedor_mascota_enemigo {
+    mix-blend-mode: multiply; /* Esto intenta mezclar los blancos con el fondo */
+    filter: contrast(120%);
+    background-color: #11468F;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Esto lo hace un círculo perfecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 5px solid #9e9e9e; /* Un borde gris claro opcional */
+    overflow: hidden;
+  }
+
+#contenedor_mascota_jugador img, #contenedor_mascota_enemigo  img {
+    width: 80%; /* Ajusta el tamaño de la imagen dentro del círculo */
+    height: 80%; /* Añade un alto definido */
+    object-fit: contain
+}
+
+.contenedor_detalles_mascota, .contenedor_detalles_enemigo {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenedor_detalles_mascota p, .contenedor_detalles_enemigo p{
+    font-size:14px;
+    color:#a29bfe
+  }
+
+.contenedor_detalles_mascota span, .contenedor_detalles_enemigo span{
+  display: block;
+    font-size:18px;
+    color: #ffffff;
+}
+
+.tarjeta_botones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 15px;
+    width: 200px;
+}
+
+.tarjeta_botones button {
+    
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #a29bfe;
+    color: #ffffff;
+}
+
+
+#button_atras {
+    background-color: #ff4757;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;  /* ¡Sal del flujo! */
+    top: 10px;          /* ¡Lo subimos! (10px desde el borde superior del padre) */
+    right: 20px;        /* ¡Lo movemos a la derecha! (20px desde el borde derecho del padre) */
+    z-index: 10;
+}
+
+
+.oculto {
+    display: none !important; /* !important asegura que nada más lo muestre */
+}
+
+
+#mensajes{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Estilos para que el Log se vea ordenado */
+#contenedor_mensajes {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil transparente */
+    padding: 15px;
+    border-radius: 10px;
+    width: 80%; /* No queremos que ocupe todo el ancho */
+    max-height: 150px; /* Altura máxima para que no empuje todo */
+    overflow-y: auto;  /* Si hay muchos mensajes, aparece una barra de desplazamiento */
+    border: 1px solid #46bdf4;
+}
+
+#contenedor_mensajes h3 {
+    font-size: 18px;
+    color: #46bdf4;
+    margin-top: 0;
+    text-align: center;
+}
+
+#contenedor_mensajes p {
+    font-size: 14px;
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Línea divisoria suave */
+}
+
+/* Un estilo rápido para el botón de Log (puedes usar el tuyo) */
+#button_log {
+    margin-right: auto;
+    background-color: #9e9e9e;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: "Paprika", system-ui;
+}
+
+
+
+/* --- 1. LAS ANIMACIONES (Keyframes) --- */
+
+/* Fuego: Un resplandor naranja/rojo y un pequeño salto */
+@keyframes efecto-fuego {
+    0% { box-shadow: 0 0 0px transparent; transform: scale(1); }
+    50% { box-shadow: 0 0 30px #ff3838, inset 0 0 20px #ff9100; transform: scale(1.05); }
+    100% { box-shadow: 0 0 0px transparent; transform: scale(1); }
+}
+
+/* Agua: Un resplandor azul y un movimiento suave hacia los lados */
+@keyframes efecto-agua {
+    0% { box-shadow: 0 0 0px transparent; transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { box-shadow: 0 0 30px #46bdf4, inset 0 0 20px #11468F; transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { box-shadow: 0 0 0px transparent; transform: translateX(0); }
+}
+
+/* Tierra: Un resplandor verde/café y una vibración fuerte (terremoto) */
+@keyframes efecto-tierra {
+    0% { box-shadow: 0 0 0px transparent; transform: translateY(0); }
+    20% { transform: translateY(-4px) rotate(-2deg); }
+    40% { box-shadow: 0 0 30px #5e9e3f, inset 0 0 20px #3e2723; transform: translateY(4px) rotate(2deg); }
+    60% { transform: translateY(-4px) rotate(-2deg); }
+    80% { transform: translateY(4px) rotate(2deg); }
+    100% { box-shadow: 0 0 0px transparent; transform: translateY(0); }
+}
+
+/* --- 2. LAS CLASES QUE APLICAN LAS ANIMACIONES --- */
+/* Estas son las que pondremos y quitaremos con JavaScript */
+.animar-fuego { animation: efecto-fuego 0.6s ease-in-out; }
+.animar-agua { animation: efecto-agua 0.6s ease-in-out; }
+.animar-tierra { animation: efecto-tierra 0.6s ease-in-out; }
+
+
+
+/* --- ESTILOS DEL POP-UP CENTRAL --- */
+#mensaje_ronda, .mensaje_ronda_ataque_jugador {
+    position: absolute; /* Sale del flujo normal */
+    top: 50%;           /* Mitad de la pantalla hacia abajo */
+    left: 50%;          /* Mitad de la pantalla hacia la derecha */
+    transform: translate(-50%, -50%); /* Lo centra perfectamente sobre su propio eje */
+    
+    background-color: rgba(18, 95, 117, 0.95);
+    border: 4px solid #ff9100;
+    border-radius: 15px;
+    padding: 20px 40px;
+    z-index: 100; /* Asegura que esté por encima de las tarjetas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    /* Para que la aparición sea suave */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#texto_ronda,.texto_ronda_ataque_jugador {
+    font-family: 'Jolly Lodger', cursive;
+    font-size: 50px;
+    margin: 0;
+    color: white;
+    text-shadow: 2px 2px 0px #11468F;
+    text-transform: uppercase;
+}
+
+
+/* Clases para mostrar/ocultar el pop-up */
+.popup-oculto {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -40%); /* Lo bajamos un poquito cuando está oculto para dar efecto de subida */
+}
+
+.popup-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%); /* Posición original central */
+}
+
+/* ESTO ES CRUCIAL: Convierte a las tarjetas en el punto de referencia */
+.tarjeta_mascota_jugador, .tarjeta_mascota_enemigo {
+    /* ... tus estilos anteriores ... */
+    position: relative; /* Atrapa a los elementos 'absolute' dentro de ella */
+}
+
+/* Estilos específicos para los pop-ups que van sobre las tarjetas */
+.popup-ataque {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Un fondo más oscuro para que resalte el texto */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    z-index: 50;
+    
+    /* Usa las mismas transiciones que ya tenías */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none; /* Evita que estorbe si pasas el mouse */
+}
+
+.popup-ataque p {
+    font-family: 'Jolly Lodger', cursive;
+    font-size: 40px; /* Un poco más pequeño que el central */
+    color: #ff9100;
+    margin: 0;
+    text-transform: uppercase;
+}
