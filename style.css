@@ -1,10 +1,19 @@
 /* has un titulo cool */
 @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Paprika&display=swap');
 
+
+html{
+    scroll-behavior: smooth;
+}
+
 body{
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: hidden;
     font-family: "Paprika", system-ui;
-  background-color: #125f75;
-  color: #ffffff;
+    background-color: #125f75;
+    color: #ffffff;
 }
 
 #seleccionar_mascota{
@@ -19,19 +28,19 @@ body{
 #titulo_principal{
   font-family: 'Jolly Lodger', cursive; /* La fuente cool que elegiste */
     text-align: center;
-    font-size: 100px; /* Un poco más grande para que destaque */
+    font-size: 50px; /* Un poco más grande para que destaque */
     color: #ff9100; /* Naranja vibrante */
     text-shadow: 
         4px 4px 0px #11468F, 
         8px 8px 0px rgba(0,0,0,0.2);
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
 .subtitulo{
   text-align: center;
-    font-size: 44px;
+    font-size: 30px;
     color: #46bdf4;
     text-transform: uppercase;
 }
@@ -43,33 +52,35 @@ body{
 
 
 .caja_mascotas{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 30px, 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Se adapta solo */
+    gap: 15px;
+    width: 100%;
+    max-width: 400px; /* Para que no se vea raro en pantallas gigantes */
+   
 }
 
-
 .label_mascota{
-  width: fit-content;
-  height: 120px;
-  background: #5e9e3f;
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-
-  color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    background: #5e9e3f;
+    
+    box-sizing: border-box;
+    border-radius: 20px;
+    
+    padding: 15px;
+    
+    color: #ffffff;
+    transition: all 0.3s ease;
 }
 
 .label_mascota img{
-    width: 100px;
-    height: 100px;
-    margin-right: 10px;
+    width: 80px;
+    height: 80px;
     mix-blend-mode: multiply; /* Esto intenta mezclar los blancos con el fondo */
     filter: contrast(120%);
 }
@@ -91,19 +102,22 @@ body{
 
 
 #button_seleccionar_mascota {
-  display: inline-block;
-  background-color: #6c5ce7; /* A vibrant purple */
-  color: #ffffff; /* White text for contrast */
-  padding: 12px 24px; /* More padding */
-  border: none; /* Remove default border */
-  border-radius: 8px; /* Slightly rounded corners */
-  font-size: 18px; /* Slightly larger font */
-  font-weight: bold; /* Make text bolder */
-  cursor: pointer; /* Indicate it's clickable */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: all 0.3s ease; /* Smooth transitions for hover effects */
-  margin-top: 40px; /* Espacio entre las mascotas y el botón */
-    width: 250px;    /* Un ancho fijo para que se vea más sólido */
+    display: block;    background-color: #6c5ce7; /* A vibrant purple */
+    
+    width: 90%; /* Full width on small screens */
+    max-width: 300px; /* But not too wide on larger screens */
+    margin: 30px auto; /* Center it with some vertical spacing */
+    padding: 15px;
+
+    color: #ffffff; /* White text for contrast */
+    
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Slightly rounded corners */
+    font-size: 20px; /* Slightly larger font */
+    font-weight: bold; /* Make text bolder */
+    cursor: pointer; /* Indicate it's clickable */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
     font-family: "Paprika", system-ui;
 }
 
@@ -120,16 +134,12 @@ body{
 }
 
 
-img{
-    width: 100px;
-    height: 100px;
-  }
 
 #seleccionar_ataque{
     display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
 
     position: relative; /* ¡Punto de referencia! */
     width: 100%;       /* Para asegurarnos de que cubra todo el ancho */
@@ -137,6 +147,29 @@ img{
 
 }
 
+#contenedor_ataques{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espacio entre la tarjeta del jugador y el enemigo */
+    width: 100%;
+}
+
+.tarjeta_mascota_jugador, .tarjeta_mascota_enemigo {
+    width: 100%;
+    max-width: 280px; /* Para que no se vea gigante en pantallas grandes */
+    height: auto;
+    padding: 10px;
+    background-color: #616161;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;   
+    box-sizing: border-box;
+    position: relative;
+}   
 
 #contenedor_seleccionar_ataque{
   margin-left: auto;  /* Empuja todo lo que puede desde la izquierda */
@@ -156,40 +189,31 @@ img{
 
 }
 
-
-#contenedor_ataques{
-    display: flex ;
-    justify-content: center;
-    gap: 50px; /* Espacio entre la tarjeta del jugador y el enemigo */
-    padding: 20px;
+#contenedor_seleccionar_ataque h2{
+    font-family: 'Jolly Lodger', cursive;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 10px 0;
 }
 
 
-.tarjeta_mascota_jugador, .tarjeta_mascota_enemigo {
-    width: 300px;
-    height: 400px;
-    background-color: #616161;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
+
+
+
 
 #contenedor_mascota_jugador, #contenedor_mascota_enemigo {
+    width: 100px;
+    height: 100px;
+
     mix-blend-mode: multiply; /* Esto intenta mezclar los blancos con el fondo */
     filter: contrast(120%);
     background-color: #11468F;
-    width: 180px;
-    height: 180px;
+    
     border-radius: 50%; /* Esto lo hace un círculo perfecto */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
-    border: 5px solid #9e9e9e; /* Un borde gris claro opcional */
+    border: 3px solid #9e9e9e; /* Un borde gris claro opcional */
     overflow: hidden;
   }
 
@@ -204,12 +228,13 @@ img{
     padding: 10px;
     border-radius: 10px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .contenedor_detalles_mascota p, .contenedor_detalles_enemigo p{
     font-size:14px;
-    color:#a29bfe
+    color:#a29bfe;
+    margin: 2px 0;
   }
 
 .contenedor_detalles_mascota span, .contenedor_detalles_enemigo span{
@@ -220,17 +245,19 @@ img{
 
 .tarjeta_botones {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 
-    gap: 15px;
-    width: 200px;
+    gap: 10px;
+    width: 100%;
+    margin: 15px 0;
 }
 
 .tarjeta_botones button {
     
-    padding: 10px;
-    font-size: 16px;
+    flex:1; /* Cada botón toma el mismo espacio disponible */
+    padding: 12px 5px;
+    font-size: 14px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -243,13 +270,14 @@ img{
     background-color: #ff4757;
     color: white;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+
+    border-radius: 20px;
     cursor: pointer;
     position: absolute;  /* ¡Sal del flujo! */
     top: 10px;          /* ¡Lo subimos! (10px desde el borde superior del padre) */
     right: 20px;        /* ¡Lo movemos a la derecha! (20px desde el borde derecho del padre) */
     z-index: 10;
+    width: auto;
 }
 
 
@@ -261,8 +289,10 @@ img{
 #mensajes{
     display: flex ;
     flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    
 }
 
 /* Estilos para que el Log se vea ordenado */
@@ -414,3 +444,6 @@ img{
     margin: 0;
     text-transform: uppercase;
 }
+
+
+

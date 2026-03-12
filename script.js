@@ -228,18 +228,19 @@ function toggleLog() {
     let sectionMensajes = document.getElementById("contenedor_mensajes");
     let buttonLog = document.getElementById("button_log");
 
-    // ¡Aquí está la magia! Invierte el estado de la clase 'oculto'
+    // Cambiamos la visibilidad
     sectionMensajes.classList.toggle('oculto'); 
     
-
-    // Opcional: Cambiar el texto del botón según el estado
-    if (sectionMensajes.classList.contains('oculto')) {
-        buttonLog.innerText = "Ver Log de Batalla";
-    } else {
+    // Si el log se acaba de mostrar, nos desplazamos hacia él
+    if (!sectionMensajes.classList.contains('oculto')) {
         buttonLog.innerText = "Ocultar Log";
+        
+        // Esta es la línea mágica de Ingeniería Web:
+        sectionMensajes.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else {
+        buttonLog.innerText = "Ver Log de Batalla";
     }
 }
-
 
 // --- NUEVA FUNCIÓN PARA CONTROLAR EL POP-UP ---
 function mostrarPopUp(resultado) {

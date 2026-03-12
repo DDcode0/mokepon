@@ -1,0 +1,361 @@
+warning: in the working copy of 'script.js', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'style.css', CRLF will be replaced by LF the next time Git touches it
+[1mdiff --git a/script.js b/script.js[m
+[1mindex 10afe62..9cb9c39 100644[m
+[1m--- a/script.js[m
+[1m+++ b/script.js[m
+[36m@@ -228,19 +228,20 @@[m [mfunction toggleLog() {[m
+     let sectionMensajes = document.getElementById("contenedor_mensajes");[m
+     let buttonLog = document.getElementById("button_log");[m
+ [m
+[31m-    // ¡Aquí está la magia! Invierte el estado de la clase 'oculto'[m
+[32m+[m[32m    // Cambiamos la visibilidad[m
+     sectionMensajes.classList.toggle('oculto'); [m
+     [m
+[31m-[m
+[31m-    // Opcional: Cambiar el texto del botón según el estado[m
+[31m-    if (sectionMensajes.classList.contains('oculto')) {[m
+[31m-        buttonLog.innerText = "Ver Log de Batalla";[m
+[31m-    } else {[m
+[32m+[m[32m    // Si el log se acaba de mostrar, nos desplazamos hacia él[m
+[32m+[m[32m    if (!sectionMensajes.classList.contains('oculto')) {[m
+         buttonLog.innerText = "Ocultar Log";[m
+[32m+[m[41m        [m
+[32m+[m[32m        // Esta es la línea mágica de Ingeniería Web:[m
+[32m+[m[32m        sectionMensajes.scrollIntoView({ behavior: 'smooth', block: 'nearest' });[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m        buttonLog.innerText = "Ver Log de Batalla";[m
+     }[m
+ }[m
+ [m
+[31m-[m
+ // --- NUEVA FUNCIÓN PARA CONTROLAR EL POP-UP ---[m
+ function mostrarPopUp(resultado) {[m
+     let divMensaje = document.getElementById("mensaje_ronda");[m
+[1mdiff --git a/style.css b/style.css[m
+[1mindex d01ae00..ccdf0d2 100644[m
+[1m--- a/style.css[m
+[1m+++ b/style.css[m
+[36m@@ -1,10 +1,19 @@[m
+ /* has un titulo cool */[m
+ @import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Paprika&display=swap');[m
+ [m
+[32m+[m
+[32m+[m[32mhtml{[m
+[32m+[m[32m    scroll-behavior: smooth;[m
+[32m+[m[32m}[m
+[32m+[m
+ body{[m
+[32m+[m[32m    margin: 0;[m
+[32m+[m[32m    padding: 10px;[m
+[32m+[m[32m    box-sizing: border-box;[m
+[32m+[m[32m    overflow-x: hidden;[m
+     font-family: "Paprika", system-ui;[m
+[31m-  background-color: #125f75;[m
+[31m-  color: #ffffff;[m
+[32m+[m[32m    background-color: #125f75;[m
+[32m+[m[32m    color: #ffffff;[m
+ }[m
+ [m
+ #seleccionar_mascota{[m
+[36m@@ -19,19 +28,19 @@[m [mbody{[m
+ #titulo_principal{[m
+   font-family: 'Jolly Lodger', cursive; /* La fuente cool que elegiste */[m
+     text-align: center;[m
+[31m-    font-size: 100px; /* Un poco más grande para que destaque */[m
+[32m+[m[32m    font-size: 50px; /* Un poco más grande para que destaque */[m
+     color: #ff9100; /* Naranja vibrante */[m
+     text-shadow: [m
+         4px 4px 0px #11468F, [m
+         8px 8px 0px rgba(0,0,0,0.2);[m
+     text-transform: uppercase;[m
+[31m-    letter-spacing: 5px;[m
+[32m+[m[32m    letter-spacing: 2px;[m
+     margin-bottom: 10px;[m
+ }[m
+ [m
+ .subtitulo{[m
+   text-align: center;[m
+[31m-    font-size: 44px;[m
+[32m+[m[32m    font-size: 30px;[m
+     color: #46bdf4;[m
+     text-transform: uppercase;[m
+ }[m
+[36m@@ -43,33 +52,35 @@[m [mbody{[m
+ [m
+ [m
+ .caja_mascotas{[m
+[31m-    display: flex;[m
+[31m-    justify-content: center;[m
+[31m-    flex-wrap: wrap;[m
+[31m-    gap: 30px;[m
+[31m-    margin-top: 30px, 30px;[m
+[32m+[m[32m    display: grid;[m
+[32m+[m[32m    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Se adapta solo */[m
+[32m+[m[32m    gap: 15px;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    max-width: 400px; /* Para que no se vea raro en pantallas gigantes */[m
+[32m+[m[41m   [m
+ }[m
+ [m
+[31m-[m
+ .label_mascota{[m
+[31m-  width: fit-content;[m
+[31m-  height: 120px;[m
+[31m-  background: #5e9e3f;[m
+[31m-  padding: 10px;[m
+[31m-  box-sizing: border-box;[m
+[31m-  border-radius: 20px;[m
+[31m-  display: flex;[m
+[31m-  justify-content: center;[m
+[31m-  align-items: center;[m
+[31m-  gap: 5px;[m
+[31m-[m
+[31m-  color: #ffffff;[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    flex-direction: column;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    justify-content: center;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    height: auto;[m
+[32m+[m[32m    background: #5e9e3f;[m
+[32m+[m[41m    [m
+[32m+[m[32m    box-sizing: border-box;[m
+[32m+[m[32m    border-radius: 20px;[m
+[32m+[m[41m    [m
+[32m+[m[32m    padding: 15px;[m
+[32m+[m[41m    [m
+[32m+[m[32m    color: #ffffff;[m
+[32m+[m[32m    transition: all 0.3s ease;[m
+ }[m
+ [m
+ .label_mascota img{[m
+[31m-    width: 100px;[m
+[31m-    height: 100px;[m
+[31m-    margin-right: 10px;[m
+[32m+[m[32m    width: 80px;[m
+[32m+[m[32m    height: 80px;[m
+     mix-blend-mode: multiply; /* Esto intenta mezclar los blancos con el fondo */[m
+     filter: contrast(120%);[m
+ }[m
+[36m@@ -91,19 +102,22 @@[m [mbody{[m
+ [m
+ [m
+ #button_seleccionar_mascota {[m
+[31m-  display: inline-block;[m
+[31m-  background-color: #6c5ce7; /* A vibrant purple */[m
+[31m-  color: #ffffff; /* White text for contrast */[m
+[31m-  padding: 12px 24px; /* More padding */[m
+[31m-  border: none; /* Remove default border */[m
+[31m-  border-radius: 8px; /* Slightly rounded corners */[m
+[31m-  font-size: 18px; /* Slightly larger font */[m
+[31m-  font-weight: bold; /* Make text bolder */[m
+[31m-  cursor: pointer; /* Indicate it's clickable */[m
+[31m-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */[m
+[31m-  transition: all 0.3s ease; /* Smooth transitions for hover effects */[m
+[31m-  margin-top: 40px; /* Espacio entre las mascotas y el botón */[m
+[31m-    width: 250px;    /* Un ancho fijo para que se vea más sólido */[m
+[32m+[m[32m    display: block;    background-color: #6c5ce7; /* A vibrant purple */[m
+[32m+[m[41m    [m
+[32m+[m[32m    width: 90%; /* Full width on small screens */[m
+[32m+[m[32m    max-width: 300px; /* But not too wide on larger screens */[m
+[32m+[m[32m    margin: 30px auto; /* Center it with some vertical spacing */[m
+[32m+[m[32m    padding: 15px;[m
+[32m+[m
+[32m+[m[32m    color: #ffffff; /* White text for contrast */[m
+[32m+[m[41m    [m
+[32m+[m[32m    border: none; /* Remove default border */[m
+[32m+[m[32m    border-radius: 8px; /* Slightly rounded corners */[m
+[32m+[m[32m    font-size: 20px; /* Slightly larger font */[m
+[32m+[m[32m    font-weight: bold; /* Make text bolder */[m
+[32m+[m[32m    cursor: pointer; /* Indicate it's clickable */[m
+[32m+[m[32m    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */[m
+[32m+[m[32m    transition: all 0.3s ease; /* Smooth transitions for hover effects */[m
+     font-family: "Paprika", system-ui;[m
+ }[m
+ [m
+[36m@@ -120,16 +134,12 @@[m [mbody{[m
+ }[m
+ [m
+ [m
+[31m-img{[m
+[31m-    width: 100px;[m
+[31m-    height: 100px;[m
+[31m-  }[m
+ [m
+ #seleccionar_ataque{[m
+     display: flex;[m
+[31m-    align-items: center;[m
+[31m-    gap: 20px;[m
+[31m-    padding: 20px;[m
+[32m+[m[32m    flex-direction: column;[m
+[32m+[m[32m    gap: 10px;[m
+[32m+[m[32m    padding: 10px;[m
+ [m
+     position: relative; /* ¡Punto de referencia! */[m
+     width: 100%;       /* Para asegurarnos de que cubra todo el ancho */[m
+[36m@@ -137,6 +147,29 @@[m [mimg{[m
+ [m
+ }[m
+ [m
+[32m+[m[32m#contenedor_ataques{[m
+[32m+[m[32m    display: flex ;[m
+[32m+[m[32m    flex-direction: column;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    gap: 20px; /* Espacio entre la tarjeta del jugador y el enemigo */[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.tarjeta_mascota_jugador, .tarjeta_mascota_enemigo {[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    max-width: 280px; /* Para que no se vea gigante en pantallas grandes */[m
+[32m+[m[32m    height: auto;[m
+[32m+[m[32m    padding: 10px;[m
+[32m+[m[32m    background-color: #616161;[m
+[32m+[m[32m    border-radius: 20px;[m
+[32m+[m[32m    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);[m
+[32m+[m[32m    display: flex;[m
+[32m+[m[32m    flex-direction: column;[m
+[32m+[m[32m    align-items: center;[m
+[32m+[m[32m    gap: 5px;[m[41m   [m
+[32m+[m[32m    box-sizing: border-box;[m
+[32m+[m[32m    position: relative;[m
+[32m+[m[32m}[m[41m   [m
+ [m
+ #contenedor_seleccionar_ataque{[m
+   margin-left: auto;  /* Empuja todo lo que puede desde la izquierda */[m
+[36m@@ -156,40 +189,31 @@[m [mimg{[m
+ [m
+ }[m
+ [m
+[31m-[m
+[31m-#contenedor_ataques{[m
+[31m-    display: flex ;[m
+[31m-    justify-content: center;[m
+[31m-    gap: 50px; /* Espacio entre la tarjeta del jugador y el enemigo */[m
+[31m-    padding: 20px;[m
+[32m+[m[32m#contenedor_seleccionar_ataque h2{[m
+[32m+[m[32m    font-family: 'Jolly Lodger', cursive;[m
+[32m+[m[32m    font-size: 24px;[m
+[32m+[m[32m    text-transform: uppercase;[m
+[32m+[m[32m    margin-bottom: 10px 0;[m
+ }[m
+ [m
+ [m
+[31m-.tarjeta_mascota_jugador, .tarjeta_mascota_enemigo {[m
+[31m-    width: 300px;[m
+[31m-    height: 400px;[m
+[31m-    background-color: #616161;[m
+[31m-    border-radius: 20px;[m
+[31m-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);[m
+[31m-    display: flex;[m
+[31m-    flex-direction: column;[m
+[31m-    align-items: center;[m
+[31m-    padding: 20px;[m
+[31m-    box-sizing: border-box;[m
+[31m-}[m
+[32m+[m
+[32m+[m
+[32m+[m
+ [m
+ #contenedor_mascota_jugador, #contenedor_mascota_enemigo {[m
+[32m+[m[32m    width: 100px;[m
+[32m+[m[32m    height: 100px;[m
+[32m+[m
+     mix-blend-mode: multiply; /* Esto intenta mezclar los blancos con el fondo */[m
+     filter: contrast(120%);[m
+     background-color: #11468F;[m
+[31m-    width: 180px;[m
+[31m-    height: 180px;[m
+[32m+[m[41m    [m
+     border-radius: 50%; /* Esto lo hace un círculo perfecto */[m
+     display: flex;[m
+     justify-content: center;[m
+     align-items: center;[m
+[31m-    margin-bottom: 15px;[m
+[31m-    border: 5px solid #9e9e9e; /* Un borde gris claro opcional */[m
+[32m+[m[32m    border: 3px solid #9e9e9e; /* Un borde gris claro opcional */[m
+     overflow: hidden;[m
+   }[m
+ [m
+[36m@@ -204,12 +228,13 @@[m [mimg{[m
+     padding: 10px;[m
+     border-radius: 10px;[m
+     text-align: center;[m
+[31m-    margin-bottom: 20px;[m
+[32m+[m[32m    margin-bottom: 5px;[m
+ }[m
+ [m
+ .contenedor_detalles_mascota p, .contenedor_detalles_enemigo p{[m
+     font-size:14px;[m
+[31m-    color:#a29bfe[m
+[32m+[m[32m    color:#a29bfe;[m
+[32m+[m[32m    margin: 2px 0;[m
+   }[m
+ [m
+ .contenedor_detalles_mascota span, .contenedor_detalles_enemigo span{[m
+[36m@@ -220,17 +245,19 @@[m [mimg{[m
+ [m
+ .tarjeta_botones {[m
+     display: flex;[m
+[31m-    flex-direction: column;[m
+[32m+[m[32m    flex-direction: row;[m
+     justify-content: center;[m
+ [m
+[31m-    gap: 15px;[m
+[31m-    width: 200px;[m
+[32m+[m[32m    gap: 10px;[m
+[32m+[m[32m    width: 100%;[m
+[32m+[m[32m    margin: 15px 0;[m
+ }[m
+ [m
+ .tarjeta_botones button {[m
+     [m
+[31m-    padding: 10px;[m
+[31m-    font-size: 16px;[m
+[32m+[m[32m    flex:1; /* Cada botón toma el mismo espacio disponible */[m
+[32m+[m[32m    padding: 12px 5px;[m
+[32m+[m[32m    font-size: 14px;[m
+     border: none;[m
+     border-radius: 8px;[m
+     cursor: pointer;[m
+[36m@@ -243,13 +270,14 @@[m [mimg{[m
+     background-color: #ff4757;[m
+     color: white;[m
+     padding: 10px 20px;[m
+[31m-    border: none;[m
+[31m-    border-radius: 5px;[m
+[32m+[m
+[32m+[m[32m    border-radius: 20px;[m
+     cursor: pointer;[m
+     position: absolute;  /* ¡Sal del flujo! */[m
+     top: 10px;          /* ¡Lo subimos! (10px desde el borde superior del padre) */[m
+     right: 20px;        /* ¡Lo movemos a la derecha! (20px desde el borde derecho del padre) */[m
+     z-index: 10;[m
+[32m+[m[32m    width: auto;[m
+ }[m
+ [m
+ [m
+[36m@@ -261,8 +289,10 @@[m [mimg{[m
+ #mensajes{[m
+     display: flex ;[m
+     flex-direction: column;[m
+[31m-    align-items: center;[m
+[31m-    margin-top: 20px;[m
+[32m+[m[32m    flex-wrap: wrap;[m
+[32m+[m[32m    align-content: center;[m
+[32m+[m[32m    justify-content: center;[m
+[32m+[m[41m    [m
+ }[m
+ [m
+ /* Estilos para que el Log se vea ordenado */[m
+[36m@@ -413,4 +443,7 @@[m [mimg{[m
+     color: #ff9100;[m
+     margin: 0;[m
+     text-transform: uppercase;[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m}[m
+[41m+[m
+[41m+[m
+[41m+[m
